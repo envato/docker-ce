@@ -1,3 +1,21 @@
+# Envato Docker CE Fork
+
+This is a fork of the `docker-ce` with a very small change
+to use the fastest compression setting when pushing layers to a
+repository. The change was made primarily to speed up CI jobs which
+create large layers and push them to Amazon ECR for use by other agents
+later in the job.
+
+On a `c5.2xlarge` AWS EC2 instance this speeds up the `docker push` of the 670MB `node:8` image to a localhost registry from 15.4 (-/+ 0.1) seconds to 5.7 (-/+ 0.05s) seconds.
+
+A release built for Linux is available on the "Releases" tab.
+Its current `sha1sum` should be `44f46d57710ab253026842bb12de37ad226905b0`.
+
+Envato provides no guarantees as to the reliability of this fork nor
+that the downloadable release will always be available.
+
+---
+
 # Docker CE
 
 This repository hosts open source components of Docker CE products. The
